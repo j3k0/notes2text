@@ -1,12 +1,13 @@
-# Google Cloud Storage File Uploader
+# Notes2Text
 
-This Python script allows you to upload files to Google Cloud Storage.
+Process a PDF containing handwritten notes, convert into a text file.
 
 ## Prerequisites
 
 - Python 3.6+
 - Google Cloud Storage account
 - Google Cloud Vision API enabled
+- Groq or Ollama
 
 ## Setup
 
@@ -27,7 +28,7 @@ This Python script allows you to upload files to Google Cloud Storage.
    - Go to the [Google Cloud Console](https://console.cloud.google.com/)
    - Navigate to "IAM & Admin" > "Service Accounts"
    - Click "Create Service Account"
-   - Give it a name and grant it the "Storage Object Creator" role
+   - Give it a name and grant it the "Storage Object Admin" role
    - Create a key for this service account and download it as JSON
 
 5. Rename the downloaded JSON file to `service_account.json` and place it in the project directory.
@@ -37,7 +38,9 @@ This Python script allows you to upload files to Google Cloud Storage.
    - Click "Create Bucket" and follow the prompts
    - Note down the bucket name
 
-7. Copy `example.env` to `.env` and update the values:
+7. Enable Google Vision API
+
+8. Copy `example.env` to `.env` and update the values:
    ```
    cp example.env .env
    ```
@@ -62,3 +65,4 @@ python cleanup_journal.py
 ## Note
 
 Keep your `service_account.json` file secure and never commit it to version control.
+
